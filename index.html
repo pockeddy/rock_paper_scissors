@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <script>
+  var counterP1=0;
+  var counterPc=0;
+  var turns=0;
+
+
+  function computerPlay(){
+  var rand=Math.floor(Math.random()*3)+1
+    if (rand == 1){
+      return "rock"
+    }
+    if (rand == 2){
+      return "paper"
+    }
+    if (rand == 3){
+      return "scissors"
+    }
+  }
+  function playRound(playerSelection, computerSelection) {
+    playerSelection=playerSelection.toUpperCase()
+    computerSelection=computerSelection.toUpperCase()
+
+    if(playerSelection=="ROCK" && computerSelection=="PAPER"){
+      console.log("Computer Wins!!!");
+      counterPc=counterPc+1;
+      turns=turns+1;
+    }
+    else if (playerSelection=="ROCK" && computerSelection=="SCISSORS") {
+      console.log("Player Wins!!!");
+      counterP1=counterP1+1;
+      turns=turns+1;
+    }
+    else if (playerSelection =="PAPER" && computerSelection=="ROCK"){
+      console.log("Player Wins!!!");
+      counterP1=counterP1+1;
+      turns=turns+1;
+    }
+    else if (playerSelection=="PAPER" && computerSelection=="SCISSORS") {
+      console.log("Computer Wins!!!");
+      counterPc=counterPc+1;
+      turns=turns+1;
+    }
+    else if (playerSelection=="SCISSORS" && computerSelection=="ROCK") {
+      console.log("Computer Wins!!!");
+      counterPc=counterPc+1;
+      turns=turns+1;
+    }
+    else if (playerSelection=="SCISSORS" && computerSelection=="PAPER") {
+      console.log("Players Win!!!");
+      counterP1=counterP1+1;
+      turns=turns+1;
+    }
+    else if (playerSelection==computerSelection){
+      console.log("It's a Draw!!!");
+      turns=turns+1;
+    }
+  }
+  function game(){
+    if(counterPc>counterP1){
+      console.log("Computer Wins!!! "+counterPc+" to "+counterPl)
+    }
+    else if(counterPc<counterP1){
+      console.log("Player Wins!!! "+counterP1+" to "+counterPc)
+    }
+    else if(counterPc==counterP1){
+      console.log("It's a draw")
+    }
+  }
+  const computerSelection = computerPlay();
+
+  while (turns <= 5) {
+    playerSelection=prompt("Input:")
+    console.log("Computer: "+computerSelection);
+    console.log("Player: "+playerSelection)
+    console.log(playRound(playerSelection,computerSelection));
+  }
+  console.log(game());
+  </script>
+</body>
+</html>
